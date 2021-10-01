@@ -1,0 +1,105 @@
+# Working code as of 10/01/2021.  Work in progress
+
+# This Python file uses the following encoding: utf-8
+import sys
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QRadioButton, QGridLayout, QPushButton, QHBoxLayout, \
+    QGroupBox
+
+# Where we display the background image.
+stylesheet = """
+    QMainWindow {
+        background-image: url("C:/Users/Stars/Pictures/References/teamug2.jpg"); 
+        background-repeat: no-repeat; 
+        background-position: center;
+    }
+"""
+
+
+# Setting up the GUI
+class TeaTimer(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+        self.setWindowTitle("It's Tea Time!")
+        self.setFixedSize(600, 400)  # width, height
+        self._centralWidget = QWidget(self)
+        self.setCentralWidget(self._centralWidget)
+        layout = QGridLayout(self._centralWidget)
+
+        self.setLayout(layout)
+
+    def teabuttons(self):
+        self.teabuttons = QGroupBox("Choose your tea")
+        layout = QHBoxLayout()
+        # Need to squish all this together so it looks nicer
+        layout.addWidget(QRadioButton("Black"))
+        layout.addWidget(QRadioButton("Green"))
+        layout.addWidget(QRadioButton("White"))
+        layout.addWidget(QRadioButton("Oolong"))
+        layout.addWidget(QRadioButton("Herbal"))
+
+
+# Make the functions for the different tea types
+def blacktea():
+    """
+    celsius_temp = 100
+    fahrenheit_temp = 210
+    min_time = 2  # In minutes
+    max_time = 6  # In minutes
+    :return:
+    """
+    pass
+
+
+def greentea():
+    """
+    celsius_temp_min = 75
+    celsius_temp_max = 80
+    fahrenheit_temp_min = 165
+    fahrenheit_temp_max = 175
+    min_time = 1  # In minutes
+    max_time = 2  # In minutes
+    """
+    pass
+
+
+def whitetea():
+    """
+    celsius_temp_min = 65
+    celsius_temp_max = 70
+    fahrenheit_temp_min = 150
+    fahrenheit_temp_max = 155
+    min_time = 1  # In minutes
+    max_time = 2  # In minutes
+    """
+    pass
+
+
+def oolongtea():
+    """
+    celsius_temp_min = 80
+    celsius_temp_max = 85
+    fahrenheit_temp_min = 175
+    fahrenheit_temp_max = 185
+    min_time = 2  # In minutes
+    max_time = 3  # In minutes
+    """
+    pass
+
+
+def herbaltea():
+    """
+    celsius_temp = 100
+    fahrenheit_temp = 210
+    min_time = 3  # In minutes
+    max_time = 6  # In minutes
+    :return:
+    """
+    pass
+
+
+if __name__ == "__main__":
+    app = QApplication([])
+    app.setStyleSheet(stylesheet)
+    window = TeaTimer()
+    window.show()
+    sys.exit(app.exec())
