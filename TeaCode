@@ -1,0 +1,105 @@
+"""
+    Here we are creating the backbone code for the Tea Timer.
+    Work in progress
+    Working code as of 10/01/2021
+"""
+
+import time
+
+def blacktea():
+    print("You are about to brew some black tea")
+    celsius_temp = 100
+    fahrenheit_temp = 210
+    min_time = 2  # In minutes
+    max_time = 6  # In minutes
+
+    pass
+
+
+def greentea():
+    print("You are about to brew some green tea.  Here are some recommendations:")
+
+    celsius_temp_min = 75
+    celsius_temp_max = 80
+    fahrenheit_temp_min = 165
+    fahrenheit_temp_max = 175
+    min_time = 1  # In minutes
+    max_time = 2  # In minutes
+
+    pass
+
+
+def whitetea():
+    print("You are about to brew some white tea")
+    celsius_temp_min = 65
+    celsius_temp_max = 70
+    fahrenheit_temp_min = 150
+    fahrenheit_temp_max = 155
+    min_time = 1  # In minutes
+    max_time = 2  # In minutes
+
+    pass
+
+
+def oolongtea():
+    print("You are about to brew some oolong tea")
+    celsius_temp_min = 80
+    celsius_temp_max = 85
+    fahrenheit_temp_min = 175
+    fahrenheit_temp_max = 185
+    min_time = 2  # In minutes
+    max_time = 3  # In minutes
+
+    pass
+
+
+def herbaltea():
+    print("You are about to brew some herbal tea")
+    celsius_temp = 100
+    fahrenheit_temp = 210
+    min_time = 3  # In minutes
+    max_time = 6  # In minutes
+
+    pass
+
+def brewrequest(request):
+    # print(request)
+    if request == 1:
+        blacktea()
+    elif request == 2:
+        greentea()
+    elif request == 3:
+        whitetea()
+    elif request == 4:
+        oolongtea()
+    elif request == 5:
+        herbaltea()
+    else:
+        print("That is not a valid request.")
+    pass
+
+# countdown timer
+def countdown(t):
+    while t: # while t > 0 for clarity
+      mins = t // 60
+      secs = t % 60
+      timer = '{:02d}:{:02d}'.format(mins, secs)
+      print(timer, end="\r") # overwrite previous line
+      time.sleep(1)
+      t -= 1
+    print('Your tea is ready!')
+
+
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    print('''Tea Menu: 
+    1. Black tea 
+    2. Green tea 
+    3. White tea 
+    4. Oolong tea 
+    5. Herbal tea''')
+    request = input("What type of tea are we brewing today?:") # Takes in request as string
+    request = int(request) # Change to int.
+    brewrequest(request)
+    t = input("Enter the steeping time in seconds: ")
+    countdown(int(t))
